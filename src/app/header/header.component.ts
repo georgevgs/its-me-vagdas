@@ -9,11 +9,9 @@ import { map } from 'rxjs/operators';
 })
 export class HeaderComponent implements OnInit {
 
-  startTime =  new Date("April 10, 2013 00:00:00");
-  startTimeMS = this.startTime.getTime();
-  elapsedTime = Date.now() - this.startTimeMS;
-  count$ = interval().pipe(
-    map(count => count + this.elapsedTime)
+  startTime = new Date("April 10, 2013 00:00:000").getTime();
+  count$ = interval(30).pipe(
+    map(count => Date.now() - this.startTime)
   );
 
   constructor() { }
